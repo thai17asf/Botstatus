@@ -2,6 +2,7 @@ require("dotenv").config();
 const { Client, GatewayIntentBits, ActivityType } = require("discord.js");
 
 const TOKEN = process.env.TOKEN;
+const CUSTOM_TEXT = "e-z.bio/thaixxp";
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds]
@@ -13,16 +14,16 @@ client.once("ready", () => {
     function updateStatus() {
         client.user.setPresence({
             activities: [{
-                name: "e-z.bio/thaixxp", // Hiển thị link
-                type: ActivityType.Watching // Có thể đổi thành Playing
+                name: CUSTOM_TEXT,
+                type: ActivityType.Watching // Hoặc ActivityType.Playing tùy theo ý muốn
             }],
-            status: "dnd" // Chuyển trạng thái thành đỏ 🔴
+            status: "dnd" // Trạng thái "Không làm phiền" với chấm đỏ
         });
-        console.log("✅ Đã cập nhật trạng thái!");
+        console.log("✅ Đã cập nhật trạng thái thành 'Không làm phiền' với thông điệp 'Đang bận'!");
     }
 
     updateStatus();
-    setInterval(updateStatus, 5000); // Cập nhật mỗi 10 giây
+    setInterval(updateStatus, 5000); // Cập nhật mỗi 30 giây
 });
 
 client.login(TOKEN);
