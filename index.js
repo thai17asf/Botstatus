@@ -19,12 +19,12 @@ client.once('ready', () => {
             }],
             status: PresenceUpdateStatus.DoNotDisturb // Trạng thái "Không làm phiền" với chấm đỏ
         }).then(() => {
-            console.log('✅ Đã cập nhật trạng thái!');
+            console.log('✅ Đã cập nhật trạng thái thành "Không làm phiền" với thông điệp "e-z.bio/thaixxp"!');
         }).catch(console.error);
     }
 
     updateStatus();
-    setInterval(updateStatus, 3000); // Cập nhật mỗi 3 giây
+    setInterval(updateStatus, 3000); // Cập nhật mỗi 4 giây
 });
 
 client.login(TOKEN);
