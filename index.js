@@ -15,7 +15,7 @@ client.once("ready", () => {
             activities: [{
                 name: "🔴 Đang phát trực tiếp!",
                 type: ActivityType.Streaming,
-                url: "https://www.e-z.bio/thaixxp"
+                url: "https://e-z.bio/thaixxp"
             }],
             status: "dnd" // Chấm trạng thái đỏ (DND)
         });
@@ -23,7 +23,7 @@ client.once("ready", () => {
     }
 
     updateStatus();
-    setInterval(updateStatus, 3000);
+    setInterval(updateStatus, 5000);
 });
 
 client.login(TOKEN);
