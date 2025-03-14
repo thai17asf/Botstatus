@@ -10,13 +10,20 @@ const client = new Client({
 client.once("ready", () => {
     console.log(`✅ Bot ${client.user.tag} đã online!`);
 
-    // Cập nhật status một lần duy nhất
-    client.user.setPresence({
-        activities: [{ name: "🎬 Đang xem phim", type: ActivityType.Watching }],
-        status: "online"
-    });
+    // Hàm cập nhật status liên tục
+    function updateStatus() {
+        client.user.setPresence({
+            activities: [{ name: "🎬 Đang xem phim", type: ActivityType.Watching }],
+            status: "online"
+        });
+        console.log("✅ Đã cập nhật lại status!");
+    }
 
-    console.log("✅ Status đã được cập nhật: Đang xem phim");
+    // Cập nhật status ngay khi bot online
+    updateStatus();
+
+    // Lặp lại mỗi 10 giây để ghi đè BotGhost
+    setInterval(updateStatus, 10000);
 });
 
 client.login(TOKEN);
