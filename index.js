@@ -10,20 +10,23 @@ const client = new Client({
 client.once("ready", () => {
     console.log(`✅ Bot ${client.user.tag} đã online!`);
 
-    // Hàm cập nhật status liên tục
     function updateStatus() {
         client.user.setPresence({
-            activities: [{ name: "🎬 Đang xem phim", type: ActivityType.Watching }],
+            activities: [{
+                name: "Live Stream 🔴",
+                type: ActivityType.Streaming,
+                url: "https://www.e-z.bio/thaixxp" // Link stream hợp lệ
+            }],
             status: "online"
         });
-        console.log("✅ Đã cập nhật lại status!");
+        console.log("✅ Đã cập nhật status: Đang stream!");
     }
 
-    // Cập nhật status ngay khi bot online
+    // Cập nhật ngay khi bot khởi động
     updateStatus();
 
-    // Lặp lại mỗi 10 giây để ghi đè BotGhost
-    setInterval(updateStatus, 10000);
+    // Lặp lại mỗi 3 giây để ghi đè lại BotGhost
+    setInterval(updateStatus, 3000);
 });
 
 client.login(TOKEN);
