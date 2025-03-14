@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Client, GatewayIntentBits, ActivityType, PresenceUpdateStatus } = require('discord.js');
 
 const TOKEN = process.env.TOKEN;
-const CUSTOM_TEXT = ': e-z.bio/thaixxp';
+const CUSTOM_TEXT = ': e-z.bio/thaixxp 🌐';
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds]
@@ -24,7 +24,7 @@ client.once('ready', () => {
     }
 
     updateStatus();
-    setInterval(updateStatus, 4000); // Cập nhật mỗi 4 giây
+    setInterval(updateStatus, 3000); // Cập nhật mỗi 3 giây
 });
 
 client.login(TOKEN);
