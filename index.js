@@ -13,7 +13,7 @@ client.once("ready", () => {
     function updateStatus() {
         client.user.setPresence({
             activities: [{
-                name: "🔴 Đang phát trực tiếp!",
+                name: "💻 Đang xem séc",
                 type: ActivityType.Streaming,
                 url: "https://e-z.bio/thaixxp"
             }],
