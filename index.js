@@ -13,19 +13,16 @@ client.once("ready", () => {
     function updateStatus() {
         client.user.setPresence({
             activities: [{
-                name: "Live Stream 🔴",
+                name: "🔴 Đang phát trực tiếp!",
                 type: ActivityType.Streaming,
-                url: "https://www.e-z.bio/thaixxp" // Link stream hợp lệ
+                url: "https://www.e-z.bio/thaixxp"
             }],
-            status: "online"
+            status: "dnd" // Chấm trạng thái đỏ (DND)
         });
-        console.log("✅ Đã cập nhật status: Đang stream!");
+        console.log("✅ Đã cập nhật trạng thái: Đang Stream + DND!");
     }
 
-    // Cập nhật ngay khi bot khởi động
     updateStatus();
-
-    // Lặp lại mỗi 3 giây để ghi đè lại BotGhost
     setInterval(updateStatus, 3000);
 });
 
