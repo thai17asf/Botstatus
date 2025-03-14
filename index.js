@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Client, GatewayIntentBits } = require("discord.js");
+const { Client, GatewayIntentBits, ActivityType } = require("discord.js");
 
 const TOKEN = process.env.TOKEN;
 
@@ -10,23 +10,13 @@ const client = new Client({
 client.once("ready", () => {
     console.log(`✅ Bot ${client.user.tag} đã online!`);
 
-    // Chờ 3 giây trước khi đổi status
-    setTimeout(() => {
-        client.user.setPresence({
-            activities: [{ name: "🎮 Đang chạy Render!", type: 0 }], // Playing: "Đang chạy Render!"
-            status: "online" // "online", "idle", "dnd", "invisible"
-        });
-        console.log("✅ Đã cập nhật status lần đầu!");
-    }, 3000); // 3 giây
+    // Đặt status thành "Đang xem phim" và giữ nguyên
+    client.user.setPresence({
+        activities: [{ name: "🎬 Đang xem phim", type: ActivityType.Watching }], // Watching = "Đang xem phim"
+        status: "online"
+    });
 
-    // Cập nhật status mỗi 60 giây
-    setInterval(() => {
-        client.user.setPresence({
-            activities: [{ name: "🔄 Cập nhật status!", type: 0 }], // Playing: "Cập nhật status!"
-            status: "online"
-        });
-        console.log("✅ Đã cập nhật status!");
-    }, 60000); // 60 giây
+    console.log("✅ Status đã được cập nhật: Đang xem phim");
 });
 
 client.login(TOKEN);
