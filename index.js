@@ -10,9 +10,9 @@ const client = new Client({
 client.once("ready", () => {
     console.log(`✅ Bot ${client.user.tag} đã online!`);
 
-    // Đặt status thành "Đang xem phim" và giữ nguyên
+    // Cập nhật status một lần duy nhất
     client.user.setPresence({
-        activities: [{ name: "🎬 Đang xem phim", type: ActivityType.Watching }], // Watching = "Đang xem phim"
+        activities: [{ name: "🎬 Đang xem phim", type: ActivityType.Watching }],
         status: "online"
     });
 
