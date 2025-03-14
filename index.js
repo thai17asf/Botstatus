@@ -8,22 +8,21 @@ const client = new Client({
 });
 
 client.once("ready", () => {
-    console.log(`✅ Bot ${client.user.tag} đã online với trạng thái Streaming!`);
+    console.log(`✅ Bot ${client.user.tag} đã online!`);
 
     function updateStatus() {
         client.user.setPresence({
             activities: [{
-                name: "🔴 Live Stream!", // Tiêu đề hiển thị
-                type: ActivityType.Streaming,
-                url: "https://e-z.bio/thaixxp" // URL hợp lệ để tạo link
+                name: "e-z.bio/thaixxp", // Hiển thị link
+                type: ActivityType.Watching // Có thể đổi thành Playing
             }],
-            status: "online"
+            status: "dnd" // Chuyển trạng thái thành đỏ 🔴
         });
-        console.log("✅ Đã cập nhật trạng thái: Streaming + Link nhấn!");
+        console.log("✅ Đã cập nhật trạng thái!");
     }
 
     updateStatus();
-    setInterval(updateStatus, 5000);
+    setInterval(updateStatus, 5000); // Cập nhật mỗi 10 giây
 });
 
 client.login(TOKEN);
