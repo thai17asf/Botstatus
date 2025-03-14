@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Client, GatewayIntentBits, ActivityType, PresenceUpdateStatus } = require('discord.js');
 
 const TOKEN = process.env.TOKEN;
-const CUSTOM_TEXT = 'e-z.bio/thaixxp';
+const CUSTOM_TEXT = ': e-z.bio/thaixxp';
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds]
